@@ -1,0 +1,9 @@
+selenium
+seleniumbase
+beautifulsoup4
+requests
+rapidfuzz
+easyocr
+pyautogui
+pillow
+lxml
