@@ -51,3 +51,4 @@ temp/
 /downloaded_files/
 .venv/
 venv/
+config.ini

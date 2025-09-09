@@ -51,12 +51,12 @@ class TFTStatsHandler(http.server.SimpleHTTPRequestHandler):
 </head>
 <body>
     <div class="header">
-        <h1>🎯 TFT Stats - Local Viewer</h1>
+        <h1>TFT Stats - Local Viewer</h1>
         <p>Real-time augment performance statistics from your local data collection</p>
     </div>
     
     <div class="info-box">
-        <h3>📊 Database Status</h3>
+        <h3>Database Status</h3>
         <div id="database-info">Loading database information...</div>
     </div>
     
@@ -77,7 +77,7 @@ class TFTStatsHandler(http.server.SimpleHTTPRequestHandler):
                 `;
             } catch (error) {
                 document.getElementById('database-info').innerHTML = `
-                    <p class="error">❌ Could not load database info: ${error.message}</p>
+                    <p class="error">Could not load database info: ${error.message}</p>
                 `;
             }
         }
@@ -90,7 +90,7 @@ class TFTStatsHandler(http.server.SimpleHTTPRequestHandler):
                 if (data.length === 0) {
                     document.getElementById('content').innerHTML = `
                         <div class="info-box">
-                            <h3>📝 No Data Yet</h3>
+                            <h3> No Data Yet</h3>
                             <p>No augment statistics have been collected yet.</p>
                             <p>Make sure the TFT Stats program is running and processing games.</p>
                         </div>
@@ -102,7 +102,7 @@ class TFTStatsHandler(http.server.SimpleHTTPRequestHandler):
                 data.sort((a, b) => a.avg - b.avg);
                 
                 let html = `
-                    <h2>📈 Augment Performance Statistics (${data.length} augments tracked)</h2>
+                    <h2> Augment Performance Statistics (${data.length} augments tracked)</h2>
                     <div class="stats-container">
                 `;
                 
@@ -141,7 +141,7 @@ class TFTStatsHandler(http.server.SimpleHTTPRequestHandler):
             } catch (error) {
                 document.getElementById('content').innerHTML = `
                     <div class="error">
-                        <h3>❌ Error Loading Data</h3>
+                        <h3> Error Loading Data</h3>
                         <p>Could not load TFT stats: ${error.message}</p>
                         <p>Make sure data.json exists and the TFT Stats program has processed some games.</p>
                     </div>
@@ -243,13 +243,13 @@ def start_server(port=8000):
     """Start the local web server"""
     try:
         with socketserver.TCPServer(("", port), TFTStatsHandler) as httpd:
-            print(f"🌐 TFT Stats Local Viewer running at:")
+            print(f" TFT Stats Local Viewer running at:")
             print(f"   http://localhost:{port}")
             print(f"   http://127.0.0.1:{port}")
             print()
-            print("📊 Open the URL in your browser to view statistics")
-            print("🔄 Data refreshes automatically every 30 seconds")
-            print("⏹️  Press Ctrl+C to stop the server")
+            print(" Open the URL in your browser to view statistics")
+            print(" Data refreshes automatically every 30 seconds")
+            print(" Press Ctrl+C to stop the server")
             print()
 
             # Auto-open browser after a short delay
@@ -264,13 +264,13 @@ def start_server(port=8000):
             httpd.serve_forever()
 
     except KeyboardInterrupt:
-        print("\n⏹️ Server stopped by user")
+        print("\nServer stopped by user")
     except OSError as e:
         if "Address already in use" in str(e):
-            print(f"❌ Port {port} is already in use. Try a different port:")
+            print(f"Port {port} is already in use. Try a different port:")
             print(f"   python local_viewer.py --port {port + 1}")
         else:
-            print(f"❌ Error starting server: {e}")
+            print(f" Error starting server: {e}")
 
 
 def main():
@@ -285,7 +285,7 @@ def main():
 
     # Check if data files exist
     if not os.path.exists('data.json') and not os.path.exists('tft.db'):
-        print("⚠️  Warning: No data files found (data.json or tft.db)")
+        print("  Warning: No data files found (data.json or tft.db)")
         print("   Make sure the TFT Stats program has run and collected some data")
         print()
 

@@ -163,14 +163,14 @@ def main():
         if choice == '1':
             modify_config(local_mode=True)
             print("\n🧪 Ready for local testing!")
-            print("   Run: python tft_stats_configurable.py")
+            print("   Run: python main.py")
             print("   View: python local_viewer.py")
 
         elif choice == '2':
             modify_config(local_mode=False)
             print("\n🚀 Ready for production!")
             print("   Make sure tftstats.pem SSH key is present")
-            print("   Run: python tft_stats_configurable.py")
+            print("   Run: python main.py")
 
         elif choice == '3':
             check_files()
