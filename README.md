@@ -12,7 +12,7 @@ This program automatically tracks and analyzes augment performance in Teamfight 
 ## 🚀 How to Run
 
 ```bash
-D:\Projects\500usd\.venv\Scripts\python.exe "get-augment-stats (1).py"
+python main.py"
 ```
 
 ## 📦 Installed Dependencies
